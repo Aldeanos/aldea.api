@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  set: MyString
+  artist: MyString
+  multiverse_id: 1
+  flavor: MyText
+  number: 1
+  layout: MyString
+
+two:
+  set: MyString
+  artist: MyString
+  multiverse_id: 1
+  flavor: MyText
+  number: 1
+  layout: MyString

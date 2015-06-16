@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  image: MyString
+  cost: MyString
+  converted_mana_cost: 1
+  text: MyText
+
+two:
+  name: MyString
+  image: MyString
+  cost: MyString
+  converted_mana_cost: 1
+  text: MyText
