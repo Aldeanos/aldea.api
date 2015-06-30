@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150629232211) do
+ActiveRecord::Schema.define(version: 20150630002025) do
+
+  create_table "card_costs", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "card_edition_subtypes", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "card_editions", force: :cascade do |t|
     t.string   "artist"
@@ -24,6 +34,11 @@ ActiveRecord::Schema.define(version: 20150629232211) do
     t.string   "border"
     t.string   "set"
     t.string   "image"
+  end
+
+  create_table "card_types", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "cards", force: :cascade do |t|
