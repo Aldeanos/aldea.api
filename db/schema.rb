@@ -11,17 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150630002025) do
+ActiveRecord::Schema.define(version: 20150721143015) do
 
   create_table "card_costs", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "card_id"
+    t.integer  "cost_id"
   end
 
+  add_index "card_costs", ["card_id"], name: "index_card_costs_on_card_id"
+  add_index "card_costs", ["cost_id"], name: "index_card_costs_on_cost_id"
+
   create_table "card_edition_subtypes", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.integer  "cardEdition_id"
+    t.integer  "subtype_id"
   end
+
+  add_index "card_edition_subtypes", ["cardEdition_id"], name: "index_card_edition_subtypes_on_cardEdition_id"
+  add_index "card_edition_subtypes", ["subtype_id"], name: "index_card_edition_subtypes_on_subtype_id"
 
   create_table "card_editions", force: :cascade do |t|
     t.string   "artist"
@@ -34,12 +44,28 @@ ActiveRecord::Schema.define(version: 20150630002025) do
     t.string   "border"
     t.string   "set"
     t.string   "image"
+    t.integer  "card_id"
+    t.integer  "edition_id"
+    t.integer  "rarity_id"
+    t.integer  "type_id"
+    t.integer  "supertype_id"
   end
+
+  add_index "card_editions", ["card_id"], name: "index_card_editions_on_card_id"
+  add_index "card_editions", ["edition_id"], name: "index_card_editions_on_edition_id"
+  add_index "card_editions", ["rarity_id"], name: "index_card_editions_on_rarity_id"
+  add_index "card_editions", ["supertype_id"], name: "index_card_editions_on_supertype_id"
+  add_index "card_editions", ["type_id"], name: "index_card_editions_on_type_id"
 
   create_table "card_types", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "card_id"
+    t.integer  "type_id"
   end
+
+  add_index "card_types", ["card_id"], name: "index_card_types_on_card_id"
+  add_index "card_types", ["type_id"], name: "index_card_types_on_type_id"
 
   create_table "cards", force: :cascade do |t|
     t.string   "name"

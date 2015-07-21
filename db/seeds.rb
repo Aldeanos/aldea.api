@@ -6,16 +6,22 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-
-# Languages ----------------------------------------
-#---------------------------------------------------
-
 # Rarity -------------------------------------------
 #---------------------------------------------------
+Rarity.create(name:'Mythic')
+Rarity.create(name:'Rare')
+Rarity.create(name:'Uncommon')
+Rarity.create(name:'Common')
+Rarity.create(name:'Special')
 
 # Types --------------------------------------------
 #---------------------------------------------------
-
-
+Type.create(name:'Artifact')
+Type.create(name:'Creature')
+Type.create(name:'Enchantment')
+Type.create(name:'Instant')
+Type.create(name:'Land')
+Type.create(name:'Planeswalker')
+Type.create(name:'Sorcery')
 
 

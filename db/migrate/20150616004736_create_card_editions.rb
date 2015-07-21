@@ -12,3 +12,6 @@ class CreateCardEditions < ActiveRecord::Migration
     end
   end
 end
+
+
+rails g model CardEdition name:string description:string reference
