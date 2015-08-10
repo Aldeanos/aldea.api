@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150721143015) do
+ActiveRecord::Schema.define(version: 20150807152351) do
 
   create_table "card_costs", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -24,13 +24,13 @@ ActiveRecord::Schema.define(version: 20150721143015) do
   add_index "card_costs", ["cost_id"], name: "index_card_costs_on_cost_id"
 
   create_table "card_edition_subtypes", force: :cascade do |t|
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-    t.integer  "cardEdition_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.integer  "subtype_id"
+    t.integer  "card_edition_id"
   end
 
-  add_index "card_edition_subtypes", ["cardEdition_id"], name: "index_card_edition_subtypes_on_cardEdition_id"
+  add_index "card_edition_subtypes", ["card_edition_id"], name: "index_card_edition_subtypes_on_card_edition_id"
   add_index "card_edition_subtypes", ["subtype_id"], name: "index_card_edition_subtypes_on_subtype_id"
 
   create_table "card_editions", force: :cascade do |t|
@@ -47,15 +47,13 @@ ActiveRecord::Schema.define(version: 20150721143015) do
     t.integer  "card_id"
     t.integer  "edition_id"
     t.integer  "rarity_id"
-    t.integer  "type_id"
-    t.integer  "supertype_id"
+    t.integer  "super_type_id"
   end
 
   add_index "card_editions", ["card_id"], name: "index_card_editions_on_card_id"
   add_index "card_editions", ["edition_id"], name: "index_card_editions_on_edition_id"
   add_index "card_editions", ["rarity_id"], name: "index_card_editions_on_rarity_id"
-  add_index "card_editions", ["supertype_id"], name: "index_card_editions_on_supertype_id"
-  add_index "card_editions", ["type_id"], name: "index_card_editions_on_type_id"
+  add_index "card_editions", ["super_type_id"], name: "index_card_editions_on_super_type_id"
 
   create_table "card_types", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -90,14 +88,14 @@ ActiveRecord::Schema.define(version: 20150721143015) do
   create_table "editions", force: :cascade do |t|
     t.string   "name"
     t.string   "border"
-    t.string   "type"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.string   "code"
     t.string   "oldCode"
     t.date     "releaseDate"
     t.string   "block"
     t.integer  "cardCount"
+    t.string   "edition_type"
   end
 
   create_table "rarities", force: :cascade do |t|
@@ -112,7 +110,7 @@ ActiveRecord::Schema.define(version: 20150721143015) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "supertypes", force: :cascade do |t|
+  create_table "super_types", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

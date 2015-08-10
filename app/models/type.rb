@@ -1,5 +1,14 @@
+# == Schema Information
+#
+# Table name: types
+#
+#  id         :integer          not null, primary key
+#  name       :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 class Type < ActiveRecord::Base
-  has_many :card_edition
-  has_many :card_type
-  has_many :card, through: :card_type
+  has_many :card_types
+  has_many :card, through: :card_types
 end

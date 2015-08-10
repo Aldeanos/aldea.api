@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class SupertypeTest < ActiveSupport::TestCase
+class SuperTypeTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
